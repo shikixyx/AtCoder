@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/hiroaki/.pyenv/versions/3.4.3/bin/python"
+    "python.pythonPath": "/Users/hiroaki/.pyenv/versions/3.4.3/bin/python",
+    "editor.formatOnSave": true
 }
