@@ -50,11 +50,7 @@ def cntQuality(N, grids, num, axis):
 
     for i in range(N):
         d = g[i]
-        '''
-        if last != d and d != 0:
-            q += 1
-            last = d
-        '''
+
         if last == d or d == 0:
             continue
 
@@ -68,15 +64,15 @@ def dfs(N, grids, pos, num, q):
     x = pos // N
     y = pos % N
 
+    '''
     if hasOver(N, grids, q):
         return False
-
     '''
+
     if y == 0 and x != 0:
         qx = cntQuality(N, grids, x-1, 0)
         if qx != q:
             return False
-
 
     # end grids
     if x == N and y == 0:
@@ -86,7 +82,6 @@ def dfs(N, grids, pos, num, q):
             if qy != q:
                 return False
         return grids
-    '''
 
     # end grids
     if x == N-1 and y == N-1:
@@ -97,9 +92,9 @@ def dfs(N, grids, pos, num, q):
             return False
 
     # not yet
-    # can arrange domino
-    # horizontal
     pos += 1
+
+    # horizontal
     if x < N-1 and grids[x][y] == 0 and grids[x+1][y] == 0:
         h_num = num + 1
         # h_grids = copy.copy(grids)
@@ -122,7 +117,8 @@ def dfs(N, grids, pos, num, q):
             return g
         grids[x][y] = 0
         grids[x][y+1] = 0
-    # dont arrange domino
+
+    # dont put domino
     g = dfs(N, grids, pos, num, q)
     if g is not False:
         return g
