@@ -4,12 +4,16 @@ read = sys.stdin.read
 readline = sys.stdin.readline
 readlines = sys.stdin.readlines
 
+# UnionFind木
+# グループ分け
+
 
 class UnionFind():
     def __init__(self, n):
         self.n = n
         self.parents = [-1] * n
 
+    # xの根を返す
     def find(self, x):
         if self.parents[x] < 0:
             return x
@@ -17,6 +21,7 @@ class UnionFind():
             self.parents[x] = self.find(self.parents[x])
             return self.parents[x]
 
+    # xとyを統合する
     def union(self, x, y):
         x = self.find(x)
         y = self.find(y)
@@ -33,9 +38,11 @@ class UnionFind():
     def size(self, x):
         return -self.parents[self.find(x)]
 
+    # xとyが同じグループかどうか判定する
     def same(self, x, y):
         return self.find(x) == self.find(y)
 
+    # xのメンバーの要素を返す
     def members(self, x):
         root = self.find(x)
         return [i for i in range(self.n) if self.find(i) == root]
