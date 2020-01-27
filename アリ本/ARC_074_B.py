@@ -2,6 +2,9 @@ import sys
 import heapq
 import copy
 
+# プライオリティーキュー
+# heapq
+
 
 def _heappush_max(heap, item):
     heap.append(item)

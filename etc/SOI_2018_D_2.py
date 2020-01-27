@@ -5,6 +5,9 @@ import numpy as np
 import heapq
 from heapq import heappop, heappush
 
+# ダイクストラ法
+# dijkstra
+
 read = sys.stdin.read
 readline = sys.stdin.readline
 readlines = sys.stdin.readlines
