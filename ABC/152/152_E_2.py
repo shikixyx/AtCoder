@@ -72,7 +72,7 @@ def divisor(n):
     return ass  # sortされていない
 
 
-# nの素因数分解(O(n**0.5)
+# nの素因数分解(O(n**0.5))
 def prime_factor(n):
     ass = []
     for i in range(2, int(n**0.5)+1):
