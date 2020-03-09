@@ -6,7 +6,7 @@ s_select_type = '''Please Select Contest Type
 print(s_select_type)
 TYPE = int(input())
 
-if TYPE == 1 or TYPE == 2 or TYPE == 3:
+if TYPE == 1 or TYPE == 2 or TYPE == 3 or TYPE == 4:
     s_select_num = '''Please Input Contest Number'''
     print(s_select_num)
     NUM = input()
@@ -21,6 +21,9 @@ if TYPE == 1 or TYPE == 2 or TYPE == 3:
         PARENT_DIR = 'ARC'
     elif TYPE == 3:
         PARENT_DIR = 'CDF'
+    elif TYPE == 4:
+        print("Please Input Contest Name")
+        PARENT_DIR = input()
 
     CHILD_DIR = PARENT_DIR + '/' + NUM
     os.mkdir(CHILD_DIR)
