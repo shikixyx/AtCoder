@@ -5,6 +5,11 @@ read = sys.stdin.buffer.read
 readline = sys.stdin.buffer.readline
 readlines = sys.stdin.buffer.readlines
 
+# AC
+# 60min
+# pypy
+# 累積和 + DP
+
 
 N, M = map(int, input().split())
 S = list(map(int, input().split()))
