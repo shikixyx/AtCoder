@@ -6,6 +6,7 @@ import heapq
 from heapq import heappush, heappop
 import math
 
+# WA
 
 #read = sys.stdin.read
 readline = sys.stdin.readline
