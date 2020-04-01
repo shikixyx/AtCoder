@@ -3,6 +3,7 @@ sys.setrecursionlimit(10 ** 7)
 
 # segment tree
 # セグメント木
+# not good
 
 
 class SegmentTree:

@@ -3,6 +3,7 @@ sys.setrecursionlimit(10 ** 7)
 
 # セグメント木
 # senment-tree
+# not good
 
 N, Q = map(int, input().split())
 QUERY = [input().split() for _ in range(Q)]
