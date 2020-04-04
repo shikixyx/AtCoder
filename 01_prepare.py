@@ -3,7 +3,7 @@ import shutil
 
 # Contest Type
 s_select_type = '''Please Select Contest Type
-1.ABC 2.ARC 3.Enterprise 3.CDF 4.etc'''
+1.ABC 2.ARC 3.Enterprise 4.CDF 5.yukicoder 6.etc'''
 print(s_select_type)
 TYPE = int(input())
 
@@ -33,6 +33,8 @@ elif TYPE == 3:
     PARENT_DIR += 'Enterprise/' + ENTERPRISE
 elif TYPE == 4:
     PARENT_DIR = 'CDF'
+elif TYPE == 5:
+    PARENT_DIR = 'yukicoder'
 
 CHILD_DIR = PARENT_DIR + '/' + NUM
 
