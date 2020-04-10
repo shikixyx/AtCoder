@@ -17,5 +17,5 @@ for _ in range(T):
     t = solve()
     ans.append(t)
 
-print("\n".join(map(str, ans)))
+print('\n'.join(map(str, ans)))
 exit(0)
