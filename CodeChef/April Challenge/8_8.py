@@ -10,6 +10,8 @@ readlines = sys.stdin.buffer.readlines
 # default dictを取り除く(pypyだと遅い)
 # pypyでもRE出なくなる
 
+# メモ化
+
 # ref. [https://qiita.com/Pro_ktmr/items/4e1e051ea0561772afa3]
 
 T = int(readline())
@@ -22,6 +24,10 @@ class SegmentTree:
     初期化処理
     f : SegmentTreeにのせるモノイド
     default : fに対する単位元
+
+    親      = i // 2
+    左側の子 = i * 2
+    右側の子 = i * 2 + 1
     注意)1-indexで実装
     '''
 
@@ -30,6 +36,14 @@ class SegmentTree:
         self.default = default
         self.dat = [default]*(self.size*2)  # 要素を単位元で初期化
         self.f = f
+
+    # 未確認
+    def setArr(self, arr):
+        L = len(arr)
+        self.dat[self.size:self.size+L] = arr
+
+        for i in range(self.size - 1, 0, -1):
+            self.dat[i] = self.f(self.dat[i*2], self.dat[i*2+1])
 
     def update(self, i, x):
         i += self.size
@@ -134,7 +148,7 @@ def prepareHLD(u, root, PATH, s, A, parents):
 
 
 # Heavy-Light Decomposition
-def HLD(u, parent, root, TOP, PATH, s, seg, order, idx, A):
+def HLD(u, parent, root, TOP, PATH, s, F, order, A):
     stack = [(u, parent, root)]
     used = [False] * (len(s))
     idx = 0
@@ -146,7 +160,7 @@ def HLD(u, parent, root, TOP, PATH, s, seg, order, idx, A):
 
         order[u] = idx
         factors = fctr_dic(A[u])
-        seg.update(idx, factors)
+        F[idx] = factors
 
         idx += 1
 
@@ -239,8 +253,10 @@ def solve():
     prepareHLD(1, -1, PATH, s, A, parents)
 
     # Heavy-Light Decomposition
-    TOP = [-1] * (N+1)  # most small depth num
-    HLD(1, -1, 1, TOP, PATH, s, seg, order, 0, A)
+    TOP = [-1] * (N + 1)  # most small depth num
+    F = [None] * N
+    HLD(1, -1, 1, TOP, PATH, s, F, order, A)
+    seg.setArr(F)
 
     # Query
     DPT = [None] * (N + 1)
