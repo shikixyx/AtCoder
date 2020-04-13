@@ -10,7 +10,7 @@ readlines = sys.stdin.buffer.readlines
 # default dictを取り除く(pypyだと遅い)
 # pypyでもRE出なくなる
 
-# メモ化
+# 初期化を速くする
 
 # ref. [https://qiita.com/Pro_ktmr/items/4e1e051ea0561772afa3]
 
