@@ -62,26 +62,26 @@ def is_prime(n):
 
 # nの約数列挙
 def divisor(n):
-    ass = []
+    ans = []
     for i in range(1, int(n**0.5)+1):
         if n % i == 0:
-            ass.append(i)
+            ans.append(i)
             if i**2 == n:
                 continue
-            ass.append(n//i)
-    return ass  # sortされていない
+            ans.append(n//i)
+    return ans  # sortされていない
 
 
 # nの素因数分解(O(n**0.5))
 def prime_factor(n):
-    ass = []
+    ans = []
     for i in range(2, int(n**0.5)+1):
         while n % i == 0:
-            ass.append(i)
+            ans.append(i)
             n = n//i
     if n != 1:
-        ass.append(n)
-    return ass
+        ans.append(n)
+    return ans
 
 
 # [[素因数,数]]を出力
@@ -103,7 +103,7 @@ def fctr1(n):
 
 # n以下の素数列挙(O(n log(n))
 def primes(n):
-    ass = []
+    ans = []
     is_prime = [True] * (n + 1)
     is_prime[0] = False
     is_prime[1] = False
@@ -114,13 +114,13 @@ def primes(n):
             is_prime[j] = False
     for i in range(len(is_prime)):
         if is_prime[i]:
-            ass.append(i)
-    return ass
+            ans.append(i)
+    return ans
 
 
 # a以上b未満の素数列挙
 def segment_sieve(a, b):
-    ass = []
+    ans = []
     is_prime_small = [True] * (int(b**0.5)+1)
     is_prime = [True] * (b-a)
     for i in range(2, int(b**0.5)):
@@ -135,10 +135,10 @@ def segment_sieve(a, b):
                 j += i
     for i in range(len(is_prime)):
         if is_prime[i]:
-            ass.append(a+i)
-    if ass[0] == 1:
-        del ass[0]
-    return ass
+            ans.append(a+i)
+    if ans[0] == 1:
+        del ans[0]
+    return ans
 
 
 # 最小公倍数を素因数で

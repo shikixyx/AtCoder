@@ -13,7 +13,7 @@ sys.setrecursionlimit(10 ** 7)
 
 MOD = 10**9 + 7
 fact = [1]
-fact_inv = [1]
+fact_inv = [1]  # numpyなし
 for i in range(10**5 + 10):
     new_fact = fact[-1]*(i+1) % MOD
     fact.append(new_fact)
@@ -70,4 +70,4 @@ for i in range(1, N):
     mx -= 1
 '''
 
-#print(ans)
+# print(ans)
