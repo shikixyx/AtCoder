@@ -1,9 +1,0 @@
-{
-    "python.pythonPath": "/Users/hiroaki/.pyenv/versions/3.8.2/bin/python3.8",
-    "editor.formatOnSave": true,
-    "python.jediEnabled": false,
-    "python.autoComplete.extraPaths": [
-        "/Users/hiroaki/.pyenv/versions/3.8.2/lib/python3.8/site-packages/"
-    ],
-    "python.analysis.cachingLevel": "System"
-}
